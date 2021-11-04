@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>VenturaHRWebApp</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>CadastrocandidatoServlet</display-name>
+    <servlet-name>CadastrocandidatoServlet</servlet-name>
+    <servlet-class>br.edu.infnet.app.CadastrocandidatoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CadastrocandidatoServlet</servlet-name>
+    <url-pattern>/Cadastro</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CadastroempresaServlet</display-name>
+    <servlet-name>CadastroempresaServlet</servlet-name>
+    <servlet-class>br.edu.infnet.app.CadastroempresaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CadastroempresaServlet</servlet-name>
+    <url-pattern>/Cadastros</url-pattern>
+  </servlet-mapping>
+</web-app>
