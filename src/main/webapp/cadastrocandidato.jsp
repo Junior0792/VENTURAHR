@@ -53,7 +53,7 @@
     
     <div class="form-group">
 	  <label class="control-label col-sm-20">CPF</label>
-	  <input value= "06357753712" type="number"class="form-control" name="CPF"placeholder="Digite seu CPF">
+	  <input value= "06357753712" type="number"class="form-control" name="cpf"placeholder="Digite seu CPF">
     </div> 
     
     <button type="submit" class="btn btn-secondary">Cadastrar</button>

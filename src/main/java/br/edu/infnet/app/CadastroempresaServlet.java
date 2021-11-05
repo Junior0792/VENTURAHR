@@ -5,10 +5,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.annotation.WebServlet;
-
+ 
 @WebServlet(name = "CadastroempresaServlet", urlPatterns = {"/CadastroempresaServlet"})
 public class CadastroempresaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -49,30 +52,39 @@ public class CadastroempresaServlet extends HttpServlet {
 
 	            ArrayList<String> erros = new ArrayList<>();
 
-	            if(nome == null || nome.length()== 0) {
+	            if(StringUtils.isBlank(nome)) {
 
 	                erros.add("O campo Nome é obrigatório");
 	            }
-	            if(email == null || email.length()== 0) {
+	            if(StringUtils.isBlank(email)) {
 
 	                erros.add("O campo Email é obrigatório");
 	            }
-	            if (endereco == null || endereco.length()== 0) {
+	            if (StringUtils.isBlank(endereco)) {
 
-	                erros.add("O campo Fone é obrigatório");
+	                erros.add("O campo endereço é obrigatório");
 	            }
-	            if (telefone == null || telefone.length()== 0) {
+	            if (StringUtils.isBlank(telefone)) {
 
-	                erros.add("O campo Fone só deve ter números");
+	                erros.add("O campo telefone é obrigatorio");
 	            }
-	            if (razao == null || razao.length()== 0) {
+	            
+	            if(StringUtils.isNotBlank(telefone) && !StringUtils.isNumeric(telefone)) {
+	            	
+	            	erros.add("O campo telefone só deve ter números");
+	            }
+	            if (StringUtils.isBlank(razao)) {
 
 	                erros.add("O campo razaõ é obrigatorio");
 	            }
 
-	            if (cnpj == null || cnpj.length()== 0) {
+	            if (StringUtils.isBlank(cnpj)) {
 
-	                erros.add("O campo Fone só deve ter números");
+	                erros.add("O campo cnpj é obrigatorio");
+	            }
+	            if(StringUtils.isNotBlank(cnpj) && !StringUtils.isNumeric(cnpj)) {
+	            	
+	            	erros.add("O campo cnpj só deve ter números");
 	            }
 
 	            if (erros.isEmpty()) {

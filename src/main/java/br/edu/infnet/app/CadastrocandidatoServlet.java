@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
+
 @WebServlet(name = "CadastrocandidatoServlet", urlPatterns = {"/CadastrocandidatoServlet"})
 public class CadastrocandidatoServlet extends HttpServlet {
 
@@ -42,26 +44,34 @@ public class CadastrocandidatoServlet extends HttpServlet {
 
             ArrayList<String> erros = new ArrayList<>();
 
-            if(nome == null || nome.length()== 0) {
+            if(StringUtils.isBlank(nome)) {
 
                 erros.add("O campo Nome é obrigatório");
             }
-            if(email == null || email.length()== 0) {
+            if(StringUtils.isBlank(email)) {
 
                 erros.add("O campo Email é obrigatório");
             }
-            if (endereco == null || endereco.length()== 0) {
+            if (StringUtils.isBlank(endereco)) {
 
-                erros.add("O campo Fone é obrigatório");
+                erros.add("O campo endereço é obrigatório");
             }
-            if (telefone == null || telefone.length()== 0) {
+            if (StringUtils.isBlank(telefone)) {
 
-                erros.add("O campo Fone só deve ter números");
+                erros.add("O campo telefone é obrigatorio");
+            }
+            if(StringUtils.isNotBlank(telefone) && !StringUtils.isNumeric(telefone)) {
+            	
+            	erros.add("O campo telefone só deve ter números");
             }
 
-            if (cpf == null || cpf.length()== 0) {
+            if (StringUtils.isBlank(cpf)) {
 
-                erros.add("O campo Fone só deve ter números");
+                erros.add("O campo cpf é obrigatorio");
+            }
+            if(StringUtils.isNotBlank(cpf) && !StringUtils.isNumeric(cpf)) {
+            	
+            	erros.add("O campo cpf só deve ter numeros");
             }
 
             if (erros.isEmpty()) {
